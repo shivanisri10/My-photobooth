@@ -3,7 +3,6 @@ export interface Filter {
   name: string
   css: string
   preview: string
-  canvasFilter?: (ctx: CanvasRenderingContext2D, w: number, h: number) => void
 }
 
 export const FILTERS: Filter[] = [
@@ -22,32 +21,32 @@ export const FILTERS: Filter[] = [
   {
     id: 'neon-pop',
     name: 'Neon Pop',
-    css: 'contrast(1.3) saturate(1.6) brightness(1.1) hue-rotate(20deg)',
+    css: 'contrast(1.35) saturate(1.7) brightness(1.1) hue-rotate(25deg)',
     preview: 'linear-gradient(135deg, #ff00cc, #3333ff)',
   },
   {
-    id: 'retro-flash',
-    name: 'Retro Flash',
-    css: 'contrast(1.2) brightness(1.05) saturate(1.3)',
-    preview: 'linear-gradient(135deg, #fddb92, #d1fdff)',
-  },
-  {
-    id: 'soft-glow',
-    name: 'Soft Glow',
-    css: 'brightness(1.1) contrast(0.95) saturate(1.05)',
+    id: 'dreamy-blur',
+    name: 'Dreamy Blur',
+    css: 'brightness(1.15) contrast(0.9) saturate(1.1) blur(1px)',
     preview: 'linear-gradient(135deg, #fbc2eb, #a6c1ee)',
   },
   {
     id: 'bw-classic',
     name: 'B&W Classic',
-    css: 'grayscale(1) contrast(1.1)',
-    preview: 'linear-gradient(135deg, #888, #333)',
+    css: 'grayscale(1) contrast(1.15)',
+    preview: 'linear-gradient(135deg, #999, #222)',
   },
   {
-    id: 'vintage-warm',
-    name: 'Vintage Warm',
-    css: 'sepia(0.35) saturate(1.1) contrast(0.95) brightness(0.95)',
-    preview: 'linear-gradient(135deg, #d4a574, #c79081)',
+    id: 'golden-hour',
+    name: 'Golden Hour',
+    css: 'brightness(1.1) contrast(1.05) saturate(1.2) hue-rotate(-15deg)',
+    preview: 'linear-gradient(135deg, #f6d365, #fda085)',
+  },
+  {
+    id: 'vintage-matte',
+    name: 'Vintage Matte',
+    css: 'contrast(0.85) brightness(1.05) saturate(0.9)',
+    preview: 'linear-gradient(135deg, #d3cce3, #e9e4f0)',
   },
 ]
 
