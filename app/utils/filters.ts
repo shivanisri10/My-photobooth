@@ -25,12 +25,6 @@ export const FILTERS: Filter[] = [
     preview: 'linear-gradient(135deg, #ff00cc, #3333ff)',
   },
   {
-    id: 'dreamy-blur',
-    name: 'Dreamy Blur',
-    css: 'brightness(1.15) contrast(0.9) saturate(1.1) blur(1px)',
-    preview: 'linear-gradient(135deg, #fbc2eb, #a6c1ee)',
-  },
-  {
     id: 'bw-classic',
     name: 'B&W Classic',
     css: 'grayscale(1) contrast(1.15)',
@@ -43,10 +37,16 @@ export const FILTERS: Filter[] = [
     preview: 'linear-gradient(135deg, #f6d365, #fda085)',
   },
   {
-    id: 'vintage-matte',
-    name: 'Vintage Matte',
-    css: 'contrast(0.85) brightness(1.05) saturate(0.9)',
-    preview: 'linear-gradient(135deg, #d3cce3, #e9e4f0)',
+    id: 'disposable-flash',
+    name: 'Disposable Flash',
+    css: 'brightness(1.25) contrast(1.2) saturate(1.1)',
+    preview: 'linear-gradient(135deg, #fff1a8, #ffffff)',
+  },
+  {
+    id: 'dreamy-blur',
+    name: 'Dreamy Blur',
+    css: 'brightness(1.15) contrast(0.9) saturate(1.1) blur(1px)',
+    preview: 'linear-gradient(135deg, #fbc2eb, #a6c1ee)',
   },
 ]
 
