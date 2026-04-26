@@ -2,7 +2,7 @@
 
 A dreamy photo booth web app, built for capturing fun moments instantly, no setup, no complexity.
 
-**Live Demo:** https://my-photobooth-olive.vercel.app/
+**Live Demo:** https://my-photobooth-web.vercel.app/
 
 ---
 
