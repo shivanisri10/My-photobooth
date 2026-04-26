@@ -29,10 +29,15 @@ export async function generateStrip(
   const PHOTO_H = 300
   const PADDING = 20
   const GAP = 12
-  const HEADER = 60
+  const HEADER = 20 // reduced since header text removed
   const FOOTER = caption || showDate ? 70 : 30
 
-  const totalH = HEADER + photos.length * PHOTO_H + (photos.length - 1) * GAP + PADDING * 2 + FOOTER
+  const totalH =
+    HEADER +
+    photos.length * PHOTO_H +
+    (photos.length - 1) * GAP +
+    PADDING * 2 +
+    FOOTER
 
   const canvas = document.createElement('canvas')
   canvas.width = PHOTO_W + PADDING * 2
@@ -48,20 +53,17 @@ export async function generateStrip(
   ctx.lineWidth = 3
   ctx.strokeRect(6, 6, canvas.width - 12, canvas.height - 12)
 
-  // Header logo
-  ctx.fillStyle = frame.text
-  ctx.font = 'bold 22px "Dancing Script", cursive'
-  ctx.textAlign = 'center'
-  ctx.fillText('softbooth 🎀', canvas.width / 2, 38)
+  // ❌ REMOVED HEADER TEXT COMPLETELY
 
   // Draw photos
   for (let i = 0; i < photos.length; i++) {
     const y = HEADER + PADDING + i * (PHOTO_H + GAP)
     const img = new Image()
     img.src = photos[i]
-    await new Promise(r => { img.onload = r })
+    await new Promise(r => {
+      img.onload = r
+    })
 
-    // Apply filter via off-screen canvas
     const offscreen = document.createElement('canvas')
     offscreen.width = PHOTO_W
     offscreen.height = PHOTO_H
@@ -71,18 +73,25 @@ export async function generateStrip(
 
     ctx.drawImage(offscreen, PADDING, y)
 
-    // Rounded corner overlay (clip via shadow)
     ctx.strokeStyle = frame.border
     ctx.lineWidth = 1
     ctx.strokeRect(PADDING, y, PHOTO_W, PHOTO_H)
   }
 
   // Caption / Date
-  const footerY = HEADER + PADDING + photos.length * PHOTO_H + (photos.length - 1) * GAP + 20
+  const footerY =
+    HEADER +
+    PADDING +
+    photos.length * PHOTO_H +
+    (photos.length - 1) * GAP +
+    20
 
   if (showDate) {
     const now = new Date()
-    const dateStr = `${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth() + 1).padStart(2, '0')}.${now.getFullYear()}`
+    const dateStr = `${String(now.getDate()).padStart(2, '0')}.${String(
+      now.getMonth() + 1
+    ).padStart(2, '0')}.${now.getFullYear()}`
+
     ctx.fillStyle = frame.text
     ctx.font = '13px "DM Sans", sans-serif'
     ctx.textAlign = 'center'
@@ -107,7 +116,6 @@ export async function generateInstagramStory(stripDataUrl: string): Promise<stri
   canvas.height = 1920
   const ctx = canvas.getContext('2d')!
 
-  // Gradient background
   const grad = ctx.createLinearGradient(0, 0, 1080, 1920)
   grad.addColorStop(0, '#FFE9F1')
   grad.addColorStop(0.5, '#F3EEFF')
@@ -117,7 +125,9 @@ export async function generateInstagramStory(stripDataUrl: string): Promise<stri
 
   const img = new Image()
   img.src = stripDataUrl
-  await new Promise(r => { img.onload = r })
+  await new Promise(r => {
+    img.onload = r
+  })
 
   const scale = Math.min(900 / img.width, 1600 / img.height)
   const dw = img.width * scale
@@ -125,7 +135,6 @@ export async function generateInstagramStory(stripDataUrl: string): Promise<stri
   const dx = (1080 - dw) / 2
   const dy = (1920 - dh) / 2
 
-  // Shadow
   ctx.shadowColor = 'rgba(0,0,0,0.15)'
   ctx.shadowBlur = 40
   ctx.shadowOffsetY = 20
