@@ -20,6 +20,12 @@ export const FILTERS: Filter[] = [
     preview: 'linear-gradient(135deg, #ff9a9e, #fad0c4)',
   },
   {
+    id: 'neon-pop',
+    name: 'Neon Pop',
+    css: 'contrast(1.3) saturate(1.6) brightness(1.1) hue-rotate(20deg)',
+    preview: 'linear-gradient(135deg, #ff00cc, #3333ff)',
+  },
+  {
     id: 'retro-flash',
     name: 'Retro Flash',
     css: 'contrast(1.2) brightness(1.05) saturate(1.3)',
