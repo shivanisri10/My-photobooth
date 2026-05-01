@@ -19,7 +19,7 @@ A dreamy photo booth web app, built for capturing fun moments instantly, no setu
 
 ## Filters
 
-Each filter is designed to feel **visually distinct**, not repetitive:
+Each filter is designed to feel **visually distinct**:
 
 * Natural (no filter)
 * 90s Film
